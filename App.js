@@ -1,19 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import EditableView from './src/components/EditableView/EditableView'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <EditableView/>      
+      <View style={styles.bottom}></View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    height: "100%",
+    //padding: 20
+    backgroundColor: "black"
   },
+  bottom: {
+    heigh: "100%",
+    backgroundColor: "blue"
+  }
 });
