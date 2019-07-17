@@ -8,14 +8,7 @@ const EditableView = (props) => {
     
 }
 const styles = StyleSheet.create({
-    editableView: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "red",
-        
-    }
+    
 });
 
 export default EditableView;

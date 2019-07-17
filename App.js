@@ -12,14 +12,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "column",
-    height: "100%",
-    //padding: 20
-    backgroundColor: "black"
-  },
-  bottom: {
-    heigh: "100%",
-    backgroundColor: "blue"
-  }
+ 
 });
+
+
