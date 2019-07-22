@@ -38,23 +38,19 @@ export default function App() {
      flex: 1
    },
    top: {
-     //flex: 1,
      marginTop: 30,
      height: "47%",
-     backgroundColor: "green",
+     backgroundColor: "black",
    },
    middle: {
-    //flex: 1,
     height: "15%",
-    //backgroundColor: "black" 
    },
    bottom: {
      flex: 1,
      height: "20%",
      backgroundColor: "yellow",
-  
-   }
-  });
+  }
+});
 
   
 

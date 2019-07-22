@@ -15,11 +15,8 @@ const InputButtons = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        borderColor: "purple",
-        borderWidth: 1,
         flexDirection: "row",
         flex: 1,
-        //alignItems: "center",
     },
     input: {
         flexDirection: "column",
@@ -30,10 +27,9 @@ const styles = StyleSheet.create({
     text: {
         flexDirection: "column",
         alignItems: "center",
-        //marginTop: 50
     }
+});
 
-})
 
 export default InputButtons;
 

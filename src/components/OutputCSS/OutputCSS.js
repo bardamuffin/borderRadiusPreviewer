@@ -4,7 +4,6 @@
 
 import React from 'React';
 import { StyleSheet, View, Text} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements'
 
 const OutputCSS = (props) => {
@@ -15,7 +14,6 @@ const OutputCSS = (props) => {
         />
         <Button 
             title="Copy CSS to clipboard"
-            //containerStyle={styles.button}
             buttonStyle={styles.button}
         />
            
@@ -32,16 +30,13 @@ const styles = StyleSheet.create({
     },
     input: {
         marginTop: 4,
-        //paddingLeft: 24,
-        //paddingRight: 24,
         height: "35%",
-        //backgroundColor: 'pink'
     },
     button: {
         marginTop: 0,
         width: "30%",
         height: "50%"
     }
-})
+});
 
 export default OutputCSS;

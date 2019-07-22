@@ -9,13 +9,11 @@ const EditableView = (props) => {
 }
 
 const styles = StyleSheet.create({
-    //TODO: Manage the height of the square
     editableView: {
         flex: 1,
         margin: 50,
         height: 100,
         backgroundColor: "blue",
-        //borderTopLeftRadius: 100
     }
 });
 
