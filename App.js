@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import EditableView from './src/components/EditableView/EditableView';
 import InputButtons from './src/components/InputButtons/InputButtons';
+import OutputCSS  from './src/components/OutputCSS/OutputCSS';
 
 export default function App() {
     this.state = {
@@ -19,7 +20,7 @@ export default function App() {
           <EditableView style={this.state.style}/>
         </View>
         <View style={styles.middle}><InputButtons/></View>
-        <View style={styles.bottom}></View>
+        <View style={styles.bottom}><OutputCSS/></View>
       </View>
     );
   }

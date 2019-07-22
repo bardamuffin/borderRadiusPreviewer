@@ -1,6 +1,8 @@
 import React from 'React';
 import { StyleSheet, View , TextInput} from 'react-native';
 
+//extract css properties https://facebook.github.io/react-native/docs/stylesheet.html#flatten
+
 const InputButtons = (props) => {
     return <View style={styles.container}>
         <TextInput style={styles.input}>topleft</TextInput>
