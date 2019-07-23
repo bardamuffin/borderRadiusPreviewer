@@ -6,10 +6,10 @@ import { Input } from 'react-native-elements';
 
 const InputButtons = (props) => {
     return <View style={styles.container}>
-        <Input label='val' containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topLeft'></Input>
-        <Input label='val' containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topRight'></Input>
-        <Input label='val' containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottLeft'></Input>
-        <Input label='val' containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottRight'></Input>
+        <Input label={props.boxStyle.borderTopLeftRadius} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topLeft'></Input>
+        <Input label={props.boxStyle.borderTopRightRadius} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topRight'></Input>
+        <Input label={props.boxStyle.borderBottomLeftRadius} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottLeft'></Input>
+        <Input label={props.boxStyle.borderBottomRightRadius} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottRight'></Input>
     </View>
 }
 

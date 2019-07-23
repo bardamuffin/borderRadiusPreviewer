@@ -41,7 +41,11 @@ export default function App() {
         <View style={styles.top}>
           <EditableView style={this.state.style}/>
         </View>
-        <View style={styles.middle}><InputButtons/></View>
+        <View style={styles.middle}>
+          <InputButtons
+            boxStyle={this.state.style}
+          />
+        </View>
         <View style={styles.bottom}>
           <OutputCSS b
             boxStyle={this.styleToString(this.state.style)} 
