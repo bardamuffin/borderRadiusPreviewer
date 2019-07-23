@@ -12,20 +12,28 @@ import OutputCSS  from './src/components/OutputCSS/OutputCSS';
 export default function App() {
     this.state = {
       style: {
-        borderTopLeftRadius: 0,
+        borderTopLeftRadius: 90,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
-        borderBottomLeftRadius: 0
+        borderBottomLeftRadius: 90,
+        backgroundColor: "blue",
+      },
+      other: {
+        backgroundColor: "red"
       }
     };
 
+    getCSS = () => {
+      let style = StyleSheet.flatten(this.state.style, this.state.other)
+      console.log("check me: " + style)
+    }
     return (
       <View style={styles.container}>
         <View style={styles.top}>
           <EditableView style={this.state.style}/>
         </View>
         <View style={styles.middle}><InputButtons/></View>
-        <View style={styles.bottom}><OutputCSS/></View>
+        <View style={styles.bottom}><OutputCSS boxStyle={this.state.style}/></View>
       </View>
     );
   }

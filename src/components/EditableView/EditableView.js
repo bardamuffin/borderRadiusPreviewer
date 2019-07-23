@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
         flex: 1,
         margin: 50,
         height: 100,
-        backgroundColor: "blue",
     }
 });
 
 export default EditableView;
     
+        

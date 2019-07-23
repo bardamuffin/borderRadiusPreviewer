@@ -2,23 +2,48 @@
 //button copy
 // https://aboutreact.com/react-native-copy-to-clipboard/
 
-import React from 'React';
+import React, { Component } from 'React';
 import { StyleSheet, View, Text} from 'react-native';
 import { Input, Button } from 'react-native-elements'
 
-const OutputCSS = (props) => {
-    return <View style={styles.container}>
-        <Input
-            placeholder='your css'
-            containerStyle={styles.input}
-        />
-        <Button 
-            title="Copy CSS to clipboard"
-            buttonStyle={styles.button}
-        />
-           
-    </View>
+export default class OutputCSS extends Component {
+    constructor(props) {
+        super(props)
+        
+    } 
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("update: " + this.styleToString(this.props.boxStyle))
+
+    }
+    componentDidMount() {
+    }
+    
+    styleToString = obj => {
+        let val = '';
+        for (let property in obj ) {
+            console.log(property)
+            val += ('"' + property+ '"' + " " + " : " + obj[property] + ", ")
+        }
+        return val;
+    }
+    render() {
+        return(
+             <View style={styles.container}>
+                <Input
+                    placeholder={this.styleToString(this.props.boxStyle)}
+                    containerStyle={styles.input}
+                />
+                <Button 
+                    title="Copy CSS to clipboard"
+                    buttonStyle={styles.button}
+                />
+                   
+            </View>
+        )    
+    }
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -38,5 +63,3 @@ const styles = StyleSheet.create({
         height: "50%"
     }
 });
-
-export default OutputCSS;
