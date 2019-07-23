@@ -1,7 +1,7 @@
 //Big text component with border
 //button copy
 // https://aboutreact.com/react-native-copy-to-clipboard/
-
+//TODO: maybe use a stateless component, to see
 import React, { Component } from 'React';
 import { StyleSheet, View, Text} from 'react-native';
 import { Input, Button } from 'react-native-elements'
