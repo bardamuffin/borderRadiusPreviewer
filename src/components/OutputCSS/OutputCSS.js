@@ -7,25 +7,20 @@ import { StyleSheet, View, Text} from 'react-native';
 import { Input, Button } from 'react-native-elements'
 
 const OutputCSS = (props) => {
-    styleToString = obj => {
-        let val = '';
-        for (let property in obj ) {
-            val += ('"' + property+ '"' + " " + " : " + obj[property] + ", ")
-        }
-        return val;
-    }
+    
     return <View style={styles.container}>
         <Input
-            placeholder={this.styleToString(props.boxStyle)}
+            placeholder={props.boxStyle}
             containerStyle={styles.input}
         />
         <Button 
             title="Copy CSS to clipboard"
             buttonStyle={styles.button}
+            onPress={props.onPress}
         />
-           
     </View>
 }
+           
 
 const styles = StyleSheet.create({
     container: {
