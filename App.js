@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Clipboard } from 'react-native';
 import EditableView from './src/components/EditableView/EditableView';
 import InputButtons from './src/components/InputButtons/InputButtons';
 import OutputCSS  from './src/components/OutputCSS/OutputCSS';
@@ -12,12 +12,29 @@ import OutputCSS  from './src/components/OutputCSS/OutputCSS';
 export default function App() {
     this.state = {
       style: {
-        borderTopLeftRadius: 0,
+        borderTopLeftRadius: 90,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
-        borderBottomLeftRadius: 0
+        borderBottomLeftRadius: 90,
+        backgroundColor: "blue",
+      },
+      other: {
+        backgroundColor: "red"
       }
     };
+
+    //Convert the style object to string
+    styleToString = obj => {
+      let val = '';
+      for (let property in obj ) {
+          val += ('"' + property+ '"' + " " + " : " + obj[property] + ", ")
+      }
+      return val;
+    }
+    //Write the string css into the clipboard
+    writeToClipboard = async () => {
+      await Clipboard.setString(this.styleToString(this.state.style))
+    }
 
     return (
       <View style={styles.container}>
@@ -25,7 +42,12 @@ export default function App() {
           <EditableView style={this.state.style}/>
         </View>
         <View style={styles.middle}><InputButtons/></View>
-        <View style={styles.bottom}><OutputCSS/></View>
+        <View style={styles.bottom}>
+          <OutputCSS b
+            boxStyle={this.styleToString(this.state.style)} 
+            onPress={this.writeToClipboard}
+          />
+        </View>
       </View>
     );
   }
