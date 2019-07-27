@@ -23,6 +23,7 @@ export default class InputButtons extends Component {
         //TODO: input validation
         //Value can't be empty
         //Value can't be a char
+        
         switch(id) {
             case 'btlr':
                 console.log('btlr');
@@ -35,10 +36,28 @@ export default class InputButtons extends Component {
                 break;
             case 'btrr':
                 console.log('btrr');
+                this.setState(prevState => ({
+                    style: {
+                        ...prevState.style,
+                        borderTopRightRadius: parseInt(val, 10)
+                    }    
+                }))
                 break;
             case 'bblr':
+                    this.setState(prevState => ({
+                        style: {
+                            ...prevState.style,
+                            borderBottomLeftRadius: parseInt(val, 10)
+                        }    
+                    }))
                 break;
             case 'bbrr':
+                    this.setState(prevState => ({
+                        style: {
+                            ...prevState.style,
+                            borderBottomRightRadius: parseInt(val, 10)
+                        }    
+                    }))
                 break;            
         }
     }
