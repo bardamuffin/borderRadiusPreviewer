@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { Component } from 'react';
 import { StyleSheet, Text, View, Clipboard } from 'react-native';
 import EditableView from './src/components/EditableView/EditableView';
 import InputButtons from './src/components/InputButtons/InputButtons';
@@ -9,7 +9,9 @@ import OutputCSS  from './src/components/OutputCSS/OutputCSS';
 //TODO: InputButtons: see the value we already have into the val label
 //maybe the idea is to pass a style object around the app
 
-export default function App() {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       style: {
         borderTopLeftRadius: 90,
@@ -22,6 +24,7 @@ export default function App() {
         backgroundColor: "red"
       }
     };
+  }
 
     //Convert the style object to string
     styleToString = obj => {
@@ -36,6 +39,27 @@ export default function App() {
       await Clipboard.setString(this.styleToString(this.state.style))
     }
 
+    handleChangeCSS = (val) => {
+      console.log('handling: ' + this.objToString(val))
+      this.setState(prevState => ({
+        style: {
+          ...val
+        }
+      }))
+    }
+    objToString = obj => {
+      let val = '';
+      for (let property in obj ) {
+          val += ('"' + property+ '"' + " " + " : " + obj[property] + ", ")
+      }
+      return val;
+  }
+
+    componentDidUpdate() {
+      console.log("Main Updated: " + this.objToString(this.state.style))
+    }
+    render() {
+       
     return (
       <View style={styles.container}>
         <View style={styles.top}>
@@ -44,10 +68,11 @@ export default function App() {
         <View style={styles.middle}>
           <InputButtons
             boxStyle={this.state.style}
+            changeVal={this.handleChangeCSS}
           />
         </View>
         <View style={styles.bottom}>
-          <OutputCSS b
+          <OutputCSS
             boxStyle={this.styleToString(this.state.style)} 
             onPress={this.writeToClipboard}
           />
@@ -55,6 +80,7 @@ export default function App() {
       </View>
     );
   }
+}  
   
   const styles = StyleSheet.create({
    container: {
@@ -78,6 +104,6 @@ export default function App() {
   }
 });
 
-  
+ //export default App; 
 
 
