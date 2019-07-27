@@ -23,14 +23,16 @@ export default class InputButtons extends Component {
         //TODO: input validation
         //Value can't be empty
         //Value can't be a char
-        
+        let nmb = val;
+        if(isNaN(val)) { return}
+        if ( val === "") { nmb = 0 }
         switch(id) {
             case 'btlr':
                 console.log('btlr');
                 this.setState(prevState => ({
                     style: {
                         ...prevState.style,
-                        borderTopLeftRadius: parseInt(val, 10)
+                        borderTopLeftRadius: parseInt(nmb, 10)
                     }    
                 }))
                 break;
@@ -39,7 +41,7 @@ export default class InputButtons extends Component {
                 this.setState(prevState => ({
                     style: {
                         ...prevState.style,
-                        borderTopRightRadius: parseInt(val, 10)
+                        borderTopRightRadius: parseInt(nmb, 10)
                     }    
                 }))
                 break;
@@ -47,7 +49,7 @@ export default class InputButtons extends Component {
                     this.setState(prevState => ({
                         style: {
                             ...prevState.style,
-                            borderBottomLeftRadius: parseInt(val, 10)
+                            borderBottomLeftRadius: parseInt(nmb, 10)
                         }    
                     }))
                 break;
@@ -55,7 +57,7 @@ export default class InputButtons extends Component {
                     this.setState(prevState => ({
                         style: {
                             ...prevState.style,
-                            borderBottomRightRadius: parseInt(val, 10)
+                            borderBottomRightRadius: parseInt(nmb, 10)
                         }    
                     }))
                 break;            
