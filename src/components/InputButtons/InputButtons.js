@@ -8,7 +8,7 @@ export default class InputButtons extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            style : props.boxStyle
+            style : {...props.boxStyle}
         }
     }
     objToString = obj => {
@@ -41,12 +41,15 @@ export default class InputButtons extends Component {
         console.log("Did update: " + this.props.boxStyle)
     }
     componentWillMount() {
-        console.log("Will! : " + this.props.boxStyle.borderBottomLeftRadius)
+        console.log("Will! : " + this.state.borderBottomLeftRadius)
+    }
+    componentDidMount() {
+        console.log("did: " + this.objToString(this.state.style))
     }
     render() {
         return(
             <View style={styles.container}>
-                <Input value={this.state.style.borderTopLeftRadius.toString()} label={this.props.boxStyle.borderTopLeftRadius} onChangeText={(val) => this.handleModifiedValue(val, "btlr")} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topLeft'></Input>
+                <Input value={this.state.style.borderTopLeftRadius.toString()} label={this.state.style.borderTopLeftRadius} onChangeText={(val) => this.handleModifiedValue(val, "btlr")} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topLeft'></Input>
                 <Input value={this.props.boxStyle.borderTopRightRadius.toString()} label={this.props.boxStyle.borderTopRightRadius} onChangeText={(val) => this.handleModifiedValue(val, "btrr")} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='topRight'></Input>
                 <Input value={this.props.boxStyle.borderBottomLeftRadius.toString()} label={this.props.boxStyle.borderBottomLeftRadius} onChangeText={(val) => this.handleModifiedValue(val, "bblr")} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottLeft'></Input>
                 <Input value={this.props.boxStyle.borderBottomRightRadius.toString()} label={this.props.boxStyle.borderBottomRightRadius} onChangeText={(val) => this.handleModifiedValue(val, "bbrr")} containerStyle={styles.input} inputContainerStyle={styles.text} placeholder ='bottRight'></Input>
