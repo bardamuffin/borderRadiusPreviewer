@@ -4,11 +4,6 @@ import EditableView from './src/components/EditableView/EditableView';
 import InputButtons from './src/components/InputButtons/InputButtons';
 import OutputCSS  from './src/components/OutputCSS/OutputCSS';
 
-//TODO: OutputCSS: show the css value + copy to clipboard css value
-//TODO: InputButtons: update the state when the props change
-//TODO: InputButtons: see the value we already have into the val label
-//maybe the idea is to pass a style object around the app
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +35,6 @@ export default class App extends Component {
     }
 
     handleChangeCSS = (val) => {
-      console.log('handling: ' + this.objToString(val))
       this.setState(prevState => ({
         style: {
           ...val
@@ -55,9 +49,7 @@ export default class App extends Component {
       return val;
   }
 
-    componentDidUpdate() {
-      console.log("Main Updated: " + this.objToString(this.state.style))
-    }
+    
     render() {
        
     return (
@@ -104,6 +96,5 @@ export default class App extends Component {
   }
 });
 
- //export default App; 
 
 

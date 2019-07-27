@@ -20,9 +20,6 @@ export default class InputButtons extends Component {
     }
 
     handleModifiedValue(val, id) {
-        //TODO: input validation
-        //Value can't be empty
-        //Value can't be a char
         let nmb = val;
         if(isNaN(val)) { return}
         if ( val === "") { nmb = 0 }
@@ -64,18 +61,11 @@ export default class InputButtons extends Component {
         }
     }
     componentDidUpdate(prevProps, prevState) {
-        console.log("Did update: ")
         if( this.state.style != prevState.style) {
-            console.log("different state")
             this.props.changeVal(this.state.style)
         }
     }
-    componentWillMount() {
-        console.log("Will! : " + this.state.borderBottomLeftRadius)
-    }
-    componentDidMount() {
-        console.log("did: " + this.objToString(this.state.style))
-    }
+    
     render() {
         return(
             <View style={styles.container}>
